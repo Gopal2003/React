@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Coffee from './coffee.jsx'
+
 
 function App() {
 
-
+//! ONLY one tag is returned here. hence, we use <> </> which is called as fragment tag.
   return (
-    <h1>
-     
-      Hello this is a sample text
-     
-    </h1>
+    <>
+      <p>Hello welcome</p>
+      <Coffee />
+    </>
   )
 }
 
