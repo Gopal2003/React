@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 
 function User() {
 
-    const {userid} = useParams()
+    const {userID} = useParams()
   return (
-    <div>User: {userid}</div>
+    <div>User: {userID}</div>
   )
 }
 
