@@ -23,7 +23,9 @@ function App() {
         document.querySelector('html').classList.add(themeMode)
     },[themeMode])
   return (
-    <ThemeProvider value={{themeMode,lightTheme,darkTheme}}>
+    //  ThemeProvider has some default values. If there is no any component who is providing the values for those defaults, Then default values will be used.
+    //! Here, the below code is the nearest ThemeProvider in the component tree. Hence, those values are overridden to these values.
+    <ThemeProvider value={{themeMode,lightTheme,darkTheme}}> 
       <div className="flex flex-wrap min-h-screen items-center">
         <div className="w-full">
           <div className="w-full max-w-sm mx-auto flex justify-end mb-4">
