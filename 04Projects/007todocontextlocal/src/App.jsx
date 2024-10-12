@@ -10,13 +10,22 @@ function App() {
 
   //* Here, oldTodo is same as the prev, just written an oldTodo for better readability.
   const addTodo = (todo) => {
-    setTodos((oldTodo) => [{ id: Date.now(), ...todo }, ...oldTodo])
+    setTodos((oldTodo) => [{ id: Date.now(), ...todo }, ...oldTodo]) // oldTodo is added to preserve all the old todos which is a array containing all the previous todo.
   }
+
+  //!The below function is same as above.
+  // const addTodo = (todo) => {
+  //   setTodos((oldTodo) => {
+  //     console.log('Old Todos:', oldTodo);  // Print the old todos
+  //     console.log('New Todos:', todo); 
+  //     return [{ id: Date.now(), ...todo }, ...oldTodo];
+  //   });
+  // }
 
   const updateTodo = (id, todo) => {
     setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo)))
   }
-
+ 
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id))
   }
@@ -28,6 +37,9 @@ function App() {
   }
 
   //Get the todos from localstorage. hence, we get all the added todos even after a reload or after re-visiting the tab again from localstorage.
+  //! As the dependency array of the below hook is empty, it is executed only once when it is mounted for the first time.
+  //! i.e., when the user revisit the tab again, the below hook will be executed and retrive all the previous todos saved in localstorage
+  //! And this is done only once.
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))
 
