@@ -10,6 +10,7 @@ function AddTodo() {
     const addTodoHandler = (e) => {
         e.preventDefault()
         dispatch(addTodo(input))
+        //dispatch(addTodo(input)): Dispatches the addTodo action to Redux, passing the input value (the new todo item).
         setInput('')
     }
 
